@@ -9,7 +9,12 @@
 Pokemon::Pokemon(std::string pkmnName, int lvl) {
     name = pkmnName;
     level = lvl;
-    healthPoints = 100;
+    healthPoints = 40;
+    attackStat = 52;
+    defenseStat = 43;
+    spAttackStat = 60;
+    spDefenseStat = 50;
+    speed = 65;
 }
 
 void Pokemon::displayInfo() const {
@@ -30,3 +35,10 @@ void Pokemon::setDamageReceived(int inflictedDamage) {
     }
 }
 
+int Pokemon::getAttackStat(bool isSpecialMove) const {
+    return isSpecialMove ? spAttackStat : attackStat;
+}
+
+int Pokemon::getDefenseStat(bool isSpecialMove) const {
+    return isSpecialMove ? spDefenseStat : defenseStat;
+}

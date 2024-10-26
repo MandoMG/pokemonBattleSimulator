@@ -11,6 +11,11 @@ class Pokemon {
     private:
         std::string moveSet[4]; // std::vector could be used if we need a dynamic array
         int healthPoints;
+        int attackStat;
+        int defenseStat;
+        int spAttackStat;
+        int spDefenseStat;
+        int speed;
     public:
         Pokemon(std::string pkmnName, int lvl);
 
@@ -23,6 +28,8 @@ class Pokemon {
         void displayHealthPoints() const;
         void setHealthPoints(int hp);
         void setDamageReceived(int inflictedDamage);
+        int getAttackStat(bool isSpecialMove) const;
+        int getDefenseStat(bool isSpecialMove) const;
 };
 
 

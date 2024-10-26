@@ -8,8 +8,8 @@ int main() {
     pokemon.displayInfo();
 
     // Add Pokemon Selection
-    // Add Pokemon Attacks
     // Determine turns
+    // Add Pokemon Attacks
     return 0;
 }
 
@@ -17,8 +17,8 @@ void performAttack(Pokemon attackingPokemon, Pokemon defenderPokemon) {
     // make the following variables dynamic
     int basePower = 100; // movement base power
     bool isSpecialAttack = false; // depends from special attack or regular
-    int pokemonAttackStat = isSpecialAttack ? 100 : 150; // get pokemon atk stat or special atk stat
-    int pokemonDefenseStat  = isSpecialAttack ? 100 : 150; // get pokemon def stat or special def stat
+    int pokemonAttackStat = attackingPokemon.getAttackStat(isSpecialAttack);
+    int pokemonDefenseStat  = defenderPokemon.getDefenseStat(isSpecialAttack);
     int modifier = 1; // get modifier from type comparison (i.e., fire vs water, etc.)
 
     const int baseDamage = (((2 * attackingPokemon.level) / 5) + 2);
