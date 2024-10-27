@@ -48,3 +48,13 @@ int Pokemon::getDefenseStat(bool isSpecialMove) const
 {
     return isSpecialMove ? spDefenseStat : defenseStat;
 }
+
+int Pokemon::getHealthPoints() const
+{
+    return healthPoints;
+}
+
+int Pokemon::getSpeedStat() const
+{
+    return speed;
+}

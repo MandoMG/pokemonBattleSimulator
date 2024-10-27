@@ -31,6 +31,8 @@ class Pokemon
         void setDamageReceived(int inflictedDamage);
         int getAttackStat(bool isSpecialMove) const;
         int getDefenseStat(bool isSpecialMove) const;
+        int getHealthPoints() const;
+        int getSpeedStat() const;
 };
 
 #endif //POKEMON_H
