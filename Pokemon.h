@@ -7,7 +7,8 @@
 
 #include <string>
 
-class Pokemon {
+class Pokemon
+{
     private:
         std::string moveSet[4]; // std::vector could be used if we need a dynamic array
         int healthPoints;
@@ -31,7 +32,5 @@ class Pokemon {
         int getAttackStat(bool isSpecialMove) const;
         int getDefenseStat(bool isSpecialMove) const;
 };
-
-
 
 #endif //POKEMON_H

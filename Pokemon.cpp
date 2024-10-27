@@ -6,7 +6,8 @@
 #include "Pokemon.h"
 
 // Constructor definition
-Pokemon::Pokemon(std::string pkmnName, int lvl) {
+Pokemon::Pokemon(std::string pkmnName, int lvl)
+{
     name = pkmnName;
     level = lvl;
     healthPoints = 40;
@@ -17,15 +18,18 @@ Pokemon::Pokemon(std::string pkmnName, int lvl) {
     speed = 65;
 }
 
-void Pokemon::displayInfo() const {
+void Pokemon::displayInfo() const
+{
     std::cout << "Your Pokemon is: " << name << " of level: " << level << std::endl;
 }
 
-void Pokemon::displayHealthPoints() const {
-    std::cout << "Your Pokemon current HP is: : " << healthPoints << std::endl;
+void Pokemon::displayHealthPoints() const
+{
+    std::cout << name << "'s current HP is: " << healthPoints << std::endl;
 }
 
-void Pokemon::setDamageReceived(int inflictedDamage) {
+void Pokemon::setDamageReceived(int inflictedDamage)
+{
     int currentHealthPoints = healthPoints - inflictedDamage;
 
     if (currentHealthPoints <= 0) {
@@ -35,10 +39,12 @@ void Pokemon::setDamageReceived(int inflictedDamage) {
     }
 }
 
-int Pokemon::getAttackStat(bool isSpecialMove) const {
+int Pokemon::getAttackStat(bool isSpecialMove) const
+{
     return isSpecialMove ? spAttackStat : attackStat;
 }
 
-int Pokemon::getDefenseStat(bool isSpecialMove) const {
+int Pokemon::getDefenseStat(bool isSpecialMove) const
+{
     return isSpecialMove ? spDefenseStat : defenseStat;
 }
