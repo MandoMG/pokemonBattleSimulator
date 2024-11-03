@@ -6,7 +6,7 @@
 #include "Pokemon.h"
 
 // Constructor definition
-Pokemon::Pokemon(std::string pkmnName, int lvl)
+Pokemon::Pokemon(std::string pkmnName, int lvl, bool isPlayerPkmn)
 {
     name = pkmnName;
     level = lvl;
@@ -16,11 +16,45 @@ Pokemon::Pokemon(std::string pkmnName, int lvl)
     spAttackStat = 60;
     spDefenseStat = 50;
     speed = 65;
+    isPlayerPokemon = isPlayerPkmn;
+
+    setPokemonMoveSet();
 }
+
+void Pokemon::setPokemonMoveSet()
+{
+    // std::string name, int basePower, std::string type, bool isSpecial
+    const PokemonMove growl("Growl", 0, "Normal", MoveCategory::STATUS);
+
+    if(name == "Charmander") {
+            const PokemonMove scratch("Scratch", 40, "Normal", MoveCategory::PHYSICAL);
+            const PokemonMove ember("Ember", 40, "Fire", MoveCategory::SPECIAL);
+            const PokemonMove smokeScreen("Smokescreen", 0, "Normal", MoveCategory::STATUS);
+
+            moveSet.push_back(growl);
+            moveSet.push_back(scratch);
+            moveSet.push_back(ember);
+            moveSet.push_back(smokeScreen);
+    } else if (name == "Pikachu") {
+            const PokemonMove tackle("Tackle", 40, "Normal", MoveCategory::PHYSICAL);
+            const PokemonMove thunderShock("Thunder Shock", 40, "Thunder", MoveCategory::SPECIAL);
+            const PokemonMove tailWhip("Tail Whip", 0, "Normal", MoveCategory::STATUS);
+
+            moveSet.push_back(growl);
+            moveSet.push_back(tackle);
+            moveSet.push_back(thunderShock);
+            moveSet.push_back(tailWhip);
+    }
+}
+
 
 void Pokemon::displayInfo() const
 {
-    std::cout << "Your Pokemon is: " << name << " of level: " << level << std::endl;
+    if (isPlayerPokemon) {
+        std::cout << "Your Pokemon is: " << name << " of level: " << level << std::endl;
+    } else {
+        std::cout << "Enemy Pokemon is: " << name << " of level: " << level << std::endl;
+    }
 }
 
 void Pokemon::displayHealthPoints() const
@@ -57,4 +91,9 @@ int Pokemon::getHealthPoints() const
 int Pokemon::getSpeedStat() const
 {
     return speed;
+}
+
+std::vector<PokemonMove> Pokemon::getPokemonMoveSet()
+{
+    return moveSet;
 }

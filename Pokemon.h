@@ -6,22 +6,25 @@
 #define POKEMON_H
 
 #include <string>
+#include "PokemonMove.h"
 
 class Pokemon
 {
     private:
-        std::string moveSet[4]; // std::vector could be used if we need a dynamic array
+        std::vector<PokemonMove> moveSet;
         int healthPoints;
         int attackStat;
         int defenseStat;
         int spAttackStat;
         int spDefenseStat;
         int speed;
+        void setPokemonMoveSet();
     public:
-        Pokemon(std::string pkmnName, int lvl);
+        Pokemon(std::string pkmnName, int lvl, bool isPlayerPkmn);
 
         // properties
         std::string name;
+        bool isPlayerPokemon;
         int level;
 
         // methods
@@ -33,6 +36,7 @@ class Pokemon
         int getDefenseStat(bool isSpecialMove) const;
         int getHealthPoints() const;
         int getSpeedStat() const;
+        std::vector<PokemonMove> getPokemonMoveSet();
 };
 
 #endif //POKEMON_H
