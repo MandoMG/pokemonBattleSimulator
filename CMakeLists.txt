@@ -5,4 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(pokemonBattleSimulator main.cpp
         Pokemon.cpp
-        Pokemon.h)
+        Pokemon.h
+        PokemonMove.h
+        PokemonMove.cpp
+        types/Enums.h)
